@@ -2,7 +2,7 @@
 
 > AI-native task tracking. Managed by the [waypoint](https://github.com/endlessblink/master-plan) plugin.
 >
-> **Quick start**: `/waypoint:task` to add a task, `/waypoint:next` to pick one, `/waypoint:done` when finished.
+> **Quick start**: `/waypoint:add` to add a task, `/waypoint:next` to pick one, `/waypoint:done` when finished.
 
 ## Project Overview
 
@@ -16,7 +16,7 @@
 
 | ID | Title | Priority | Status | Dependencies |
 |----|-------|----------|--------|--------------|
-<!-- Tasks are added here automatically by /waypoint:task -->
+<!-- Tasks are added here automatically by /waypoint:add -->
 
 ## Active Work
 

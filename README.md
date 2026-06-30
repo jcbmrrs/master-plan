@@ -3,7 +3,7 @@
 AI-native task management for [Claude Code](https://claude.com/claude-code). Track tasks in a `ROADMAP.md` file, pick what to work on, save progress, and ship — all through agent skills.
 
 ```
-/waypoint:task  →  create  →  /waypoint:next  →  pick  →  /waypoint:save  →  pause  →  /waypoint:done  →  ship
+/waypoint:add  →  create  →  /waypoint:next  →  pick  →  /waypoint:save  →  pause  →  /waypoint:done  →  ship
 ```
 
 ## Quick Start
@@ -18,7 +18,7 @@ AI-native task management for [Claude Code](https://claude.com/claude-code). Tra
 **Step 2** — Create your first task:
 
 ```
-/waypoint:task
+/waypoint:add
 ```
 
 That's it. If your project doesn't have a `ROADMAP.md` yet, the plugin creates one automatically in `docs/ROADMAP.md`.
@@ -48,12 +48,12 @@ That's it. If your project doesn't have a `ROADMAP.md` yet, the plugin creates o
 
 ## Skills
 
-### `/waypoint:task` — Create a Task
+### `/waypoint:add` — Create a Task
 
 Creates a new task with an auto-generated sequential ID. If no `ROADMAP.md` exists, creates one from a starter template.
 
 ```
-> /waypoint:task
+> /waypoint:add
 
 Using task number: 42
 
@@ -141,7 +141,7 @@ Start session
     ├──► Need to stop?  → /waypoint:save (WIP commit + push)
     │                      Come back later, git pull, /next
     │
-    ├──► Found a bug?   → /waypoint:task (log it, keep working)
+    ├──► Found a bug?   → /waypoint:add (log it, keep working)
     │
     └──► Done!          → /waypoint:done (verify + test + commit + push)
          │
@@ -175,7 +175,7 @@ Description of the task...
 
 Tasks can also appear in a roadmap table — the plugin updates both locations automatically.
 
-> **Starting fresh?** Run `/waypoint:task` and the plugin creates the file for you. A starter template is also available at [`templates/ROADMAP.md`](templates/ROADMAP.md).
+> **Starting fresh?** Run `/waypoint:add` and the plugin creates the file for you. A starter template is also available at [`templates/ROADMAP.md`](templates/ROADMAP.md).
 
 ## Task ID Format
 

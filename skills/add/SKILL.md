@@ -1,15 +1,15 @@
 ---
-name: task
-description: Create a new task in ROADMAP.md with auto-generated sequential IDs. Supports TASK, BUG, FEATURE, and INQUIRY types. Triggers on "/task", "add task", "new task", "create task", "track this".
+name: add
+description: Add a new waypoint (task) to ROADMAP.md with auto-generated sequential IDs. Supports TASK, BUG, FEATURE, and INQUIRY types. Triggers on "/add", "add task", "new task", "create task", "track this".
 ---
 
-# Task Creator
+# Add Waypoint
 
-Quickly add new tasks to ROADMAP.md with automatic sequential ID generation.
+Quickly add new waypoints (tasks) to ROADMAP.md with automatic sequential ID generation.
 
 ## Triggers
 
-- `/waypoint:task` - Main command
+- `/waypoint:add` - Main command
 - "add task", "new task", "create task", "track this", "log a bug"
 
 ## Workflow
