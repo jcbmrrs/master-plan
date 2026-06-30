@@ -1,4 +1,4 @@
-# MASTER PLAN
+# ROADMAP
 
 > AI-native task tracking. Managed by the [waypoint](https://github.com/endlessblink/master-plan) plugin.
 >

@@ -1,32 +1,32 @@
 ---
 name: task
-description: Create a new task in MASTER_PLAN.md with auto-generated sequential IDs. Supports TASK, BUG, FEATURE, and INQUIRY types. Triggers on "/task", "add task", "new task", "create task", "track this".
+description: Create a new task in ROADMAP.md with auto-generated sequential IDs. Supports TASK, BUG, FEATURE, and INQUIRY types. Triggers on "/task", "add task", "new task", "create task", "track this".
 ---
 
 # Task Creator
 
-Quickly add new tasks to MASTER_PLAN.md with automatic sequential ID generation.
+Quickly add new tasks to ROADMAP.md with automatic sequential ID generation.
 
 ## Triggers
 
-- `/master-plan:task` - Main command
+- `/waypoint:task` - Main command
 - "add task", "new task", "create task", "track this", "log a bug"
 
 ## Workflow
 
-### Step 1: Find MASTER_PLAN.md
+### Step 1: Find ROADMAP.md
 
 Search for the plan file in order:
-1. `docs/MASTER_PLAN.md`
-2. `MASTER_PLAN.md`
-3. `master-plan.md`
-4. `docs/master-plan.md`
+1. `docs/ROADMAP.md`
+2. `ROADMAP.md`
+3. `roadmap.md`
+4. `docs/roadmap.md`
 
-**If not found**: Create `docs/MASTER_PLAN.md` using the template structure (see "Initial Setup" section below).
+**If not found**: Create `docs/ROADMAP.md` using the template structure (see "Initial Setup" section below).
 
 ### Step 2: Generate Next Task ID
 
-Read the MASTER_PLAN.md file and find all existing task IDs:
+Read the ROADMAP.md file and find all existing task IDs:
 
 1. Scan for all occurrences matching `(TASK|BUG|FEATURE|ROAD|IDEA|ISSUE|INQUIRY)-(\d+)`
 2. Extract the numeric part from each match
@@ -62,7 +62,7 @@ Then ask in plain text: "What's the task title? (Keep it concise, under 50 chars
 
 Optionally ask: "Any additional description? (Or just press enter to skip)"
 
-### Step 4: Add to MASTER_PLAN.md
+### Step 4: Add to ROADMAP.md
 
 #### 4a. Add to Roadmap Table (if one exists)
 
@@ -93,18 +93,18 @@ For P0/P1 tasks, add a note that this is high priority.
 
 Output to user:
 ```
-Task added to MASTER_PLAN.md:
+Task added to ROADMAP.md:
 - **ID**: [TYPE]-[ID]
 - **Title**: [Title]
 - **Priority**: [Priority]
 - **Status**: PLANNED
 
-Use `/master-plan:next` to start working on it, or `/master-plan:done [ID]` when complete.
+Use `/waypoint:next` to start working on it, or `/waypoint:done [ID]` when complete.
 ```
 
 ## Initial Setup
 
-If no MASTER_PLAN.md exists, create `docs/MASTER_PLAN.md` with this structure:
+If no ROADMAP.md exists, create `docs/ROADMAP.md` with this structure:
 
 ```markdown
 # MASTER PLAN

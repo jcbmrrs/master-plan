@@ -1,18 +1,18 @@
 {
-  "name": "master-plan",
+  "name": "waypoint",
   "owner": {
     "name": "endlessblink",
     "url": "https://github.com/endlessblink"
   },
   "metadata": {
-    "description": "AI-native task management for Claude Code. Track tasks in MASTER_PLAN.md — pick, save, ship."
+    "description": "AI-native task management for Claude Code. Track tasks in ROADMAP.md — pick, save, ship."
   },
   "plugins": [
     {
-      "name": "master-plan",
+      "name": "waypoint",
       "source": "./",
       "description": "Task lifecycle skills: /next, /done, /save, /task",
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   ]
 }

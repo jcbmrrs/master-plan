@@ -1,7 +1,7 @@
 {
-  "name": "master-plan",
-  "version": "1.0.0",
-  "description": "AI-native task management powered by a MASTER_PLAN.md file. Pick tasks, track progress, save WIP, and ship — all through Claude Code skills.",
+  "name": "waypoint",
+  "version": "1.1.0",
+  "description": "AI-native task management powered by a ROADMAP.md file. Pick tasks, track progress, save WIP, and ship — all through Claude Code skills.",
   "author": {
     "name": "endlessblink",
     "url": "https://github.com/endlessblink"
@@ -10,10 +10,11 @@
   "license": "MIT",
   "keywords": [
     "task-management",
-    "master-plan",
+    "waypoint",
     "workflow",
     "productivity",
-    "agent-skills"
+    "agent-skills",
+    "adhd"
   ],
   "skills": "./skills/"
 }

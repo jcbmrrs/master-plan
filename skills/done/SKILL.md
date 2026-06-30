@@ -1,15 +1,15 @@
 ---
 name: done
-description: Task completion workflow — run tests, commit, push, and update MASTER_PLAN.md. Use when a task is finished and ready to ship. Triggers on "/done", "mark done", "task complete", "finish task", "ship it".
+description: Task completion workflow — run tests, commit, push, and update ROADMAP.md. Use when a task is finished and ready to ship. Triggers on "/done", "mark done", "task complete", "finish task", "ship it".
 ---
 
 # Task Completion Workflow
 
-Finalize a completed task: verify tests pass, commit changes, update MASTER_PLAN.md, and push.
+Finalize a completed task: verify tests pass, commit changes, update ROADMAP.md, and push.
 
 ## Triggers
 
-- `/master-plan:done` - Main command
+- `/waypoint:done` - Main command
 - "mark done", "task complete", "finish task", "ship it"
 
 ## Workflow
@@ -56,7 +56,7 @@ Detect and run the project's test command. Check in order:
 **If tests pass**: Continue.
 **If no test command found**: Warn user and continue.
 
-### Step 4: Update MASTER_PLAN.md (if tracked task)
+### Step 4: Update ROADMAP.md (if tracked task)
 
 **Skip this step if user selected "Quick fix (no task ID)".**
 
@@ -99,7 +99,7 @@ Find the task row and update:
 Search for the task ID and confirm all occurrences show strikethrough or ✅ DONE:
 
 ```bash
-grep "TASK-XXX" docs/MASTER_PLAN.md
+grep "TASK-XXX" docs/ROADMAP.md
 ```
 
 ### Step 5: Commit and Push
@@ -115,7 +115,7 @@ Prefer staging specific files by name over `git add -A`.
 ```bash
 # Stage code files
 git add <changed-files>
-git add docs/MASTER_PLAN.md  # if tracked task
+git add docs/ROADMAP.md  # if tracked task
 
 # Commit
 git commit -m "$(cat <<'EOF'
@@ -162,15 +162,15 @@ Output this summary:
 - **Tests**: ✅ Passed (or ⏭️ Skipped)
 - **Commit**: [short hash] — [message]
 - **Push**: ✅ Pushed to origin
-- **MASTER_PLAN.md**: Updated / N/A
+- **ROADMAP.md**: Updated / N/A
 ```
 
 ## Important Rules
 
 1. **NEVER skip commit/push** — Changes must be pushed to the remote
 2. **ALWAYS collect summary** — Don't proceed without knowing what changed
-3. **Update ALL locations** in MASTER_PLAN.md for tracked tasks
-4. **Verify with grep** after updating MASTER_PLAN.md
+3. **Update ALL locations** in ROADMAP.md for tracked tasks
+4. **Verify with grep** after updating ROADMAP.md
 5. **Wait for user input** — Don't assume or skip questions
 6. **Test failures block completion** — If tests fail, stop and report
 

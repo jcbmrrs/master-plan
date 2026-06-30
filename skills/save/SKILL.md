@@ -5,7 +5,7 @@ description: Save work-in-progress and push to remote. Like /done but keeps task
 
 # Save Progress
 
-Save work-in-progress and push to remote repository. Unlike `/master-plan:done`, this keeps the task status as IN PROGRESS — perfect for:
+Save work-in-progress and push to remote repository. Unlike `/waypoint:done`, this keeps the task status as IN PROGRESS — perfect for:
 - Switching machines
 - End of session but task not complete
 - Before restarting your computer
@@ -13,7 +13,7 @@ Save work-in-progress and push to remote repository. Unlike `/master-plan:done`,
 
 ## Triggers
 
-- `/master-plan:save` - Main command
+- `/waypoint:save` - Main command
 - "save progress", "switch machine", "end session", "backup work"
 
 ## Workflow
@@ -36,17 +36,17 @@ Use `AskUserQuestion` to gather:
 1. **Task ID** (header: "Task")
    - Options: "Tracked task (enter ID)", "No task (just commit)"
 
-2. **Update MASTER_PLAN?** (header: "Docs")
+2. **Update ROADMAP?** (header: "Docs")
    - Options: "No (just commit)", "Yes (add progress note)"
 
 Then ask in plain text: "What's a brief summary of the progress? (1-2 sentences)"
 
 **IMPORTANT**: Wait for user to provide the summary before proceeding.
 
-### Step 3: Update MASTER_PLAN.md (if requested)
+### Step 3: Update ROADMAP.md (if requested)
 
 If the user wants to add progress notes:
-1. Find the task's `###` section in MASTER_PLAN.md
+1. Find the task's `###` section in ROADMAP.md
 2. Add a progress note with timestamp
 
 Format:
@@ -113,12 +113,12 @@ Ready to continue on another machine:
 
 ## Difference from /done
 
-| Aspect | `/master-plan:done` | `/master-plan:save` |
+| Aspect | `/waypoint:done` | `/waypoint:save` |
 |--------|---------------------|---------------------|
 | Task Status | ✅ DONE | 🔄 IN PROGRESS (unchanged) |
 | Commit prefix | `feat(TASK-XXX):` | `wip(TASK-XXX):` |
 | Tests required | Yes | No (skip for speed) |
-| MASTER_PLAN update | Mark complete | Add progress note only |
+| ROADMAP update | Mark complete | Add progress note only |
 | Use case | Task finished | Session end, machine switch |
 
 ## Important Rules
@@ -126,4 +126,4 @@ Ready to continue on another machine:
 1. **Do NOT mark task as DONE** — The whole point is to save progress without claiming completion
 2. **Do NOT run tests** — Speed is the priority for session-end saves
 3. **Always push** — The goal is to make work available on another machine
-4. **Ask before MASTER_PLAN changes** — Some users may just want to commit/push
+4. **Ask before ROADMAP changes** — Some users may just want to commit/push
