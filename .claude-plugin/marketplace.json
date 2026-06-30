@@ -1,8 +1,8 @@
 {
   "name": "waypoint",
   "owner": {
-    "name": "endlessblink",
-    "url": "https://github.com/endlessblink"
+    "name": "jcbmrrs",
+    "url": "https://github.com/jcbmrrs"
   },
   "metadata": {
     "description": "AI-native task management for Claude Code. Track tasks in ROADMAP.md — pick, save, ship."
@@ -11,7 +11,7 @@
     {
       "name": "waypoint",
       "source": "./",
-      "description": "Task lifecycle skills: /next, /done, /save, /task",
+      "description": "Task lifecycle skills: /add, /next, /save, /done",
       "version": "1.1.0"
     }
   ]

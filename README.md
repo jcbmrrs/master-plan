@@ -11,7 +11,7 @@ AI-native task management for [Claude Code](https://claude.com/claude-code). Tra
 **Step 1** — Install the plugin (run these two lines inside Claude Code):
 
 ```
-/plugin marketplace add endlessblink/master-plan
+/plugin marketplace add jcbmrrs/waypoint
 /plugin install waypoint
 ```
 
@@ -198,12 +198,12 @@ Commit this to your project's `.claude/settings.json` and teammates are prompted
 ```json
 {
   "extraKnownMarketplaces": {
-    "endlessblink-tools": {
-      "source": { "source": "github", "repo": "endlessblink/master-plan" }
+    "jcbmrrs-tools": {
+      "source": { "source": "github", "repo": "jcbmrrs/waypoint" }
     }
   },
   "enabledPlugins": {
-    "waypoint@endlessblink-tools": true
+    "waypoint@jcbmrrs-tools": true
   }
 }
 ```
@@ -217,7 +217,11 @@ No npm install, no build step, no external dependencies. The skills are pure mar
 
 ## Contributing
 
-Issues and PRs welcome at [github.com/endlessblink/master-plan](https://github.com/endlessblink/master-plan/issues).
+Issues and PRs welcome at [github.com/jcbmrrs/waypoint](https://github.com/jcbmrrs/waypoint/issues).
+
+## Attribution
+
+This project is a fork of [endlessblink/master-plan](https://github.com/endlessblink/master-plan), which introduced the original concept of AI-native task management via Claude Code skills. It has been renamed, redesigned, and extended with improved subtask verification, stricter completion semantics, and an ADHD-friendlier workflow.
 
 ## License
 

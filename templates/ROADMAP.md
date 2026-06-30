@@ -1,6 +1,6 @@
 # ROADMAP
 
-> AI-native task tracking. Managed by the [waypoint](https://github.com/endlessblink/master-plan) plugin.
+> AI-native task tracking. Managed by the [waypoint](https://github.com/jcbmrrs/waypoint) plugin.
 >
 > **Quick start**: `/waypoint:add` to add a task, `/waypoint:next` to pick one, `/waypoint:done` when finished.
 
