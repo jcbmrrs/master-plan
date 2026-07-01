@@ -1,15 +1,15 @@
 ---
 name: next
-description: Analyze and pick the next task to work on. Reads MASTER_PLAN.md, scores tasks by priority and status, and presents interactive selection. Use when starting a session or deciding what to tackle next.
+description: Analyze and pick the next task to work on. Reads ROADMAP.md, scores tasks by priority and status, and presents interactive selection. Use when starting a session or deciding what to tackle next.
 ---
 
 # What's Next?
 
-Analyze MASTER_PLAN.md tasks, score by priority/status, and let the user pick interactively.
+Analyze ROADMAP.md tasks, score by priority/status, and let the user pick interactively.
 
 ## Triggers
 
-- `/master-plan:next` - Main command
+- `/waypoint:next` - Main command
 - "what should I work on", "pick a task", "next task", "what's next"
 
 ## Arguments
@@ -23,19 +23,19 @@ Analyze MASTER_PLAN.md tasks, score by priority/status, and let the user pick in
 | `active` | IN PROGRESS + REVIEW |
 | `all` | Include DONE tasks |
 
-Example: `/master-plan:next bugs` or `/master-plan:next planned`
+Example: `/waypoint:next bugs` or `/waypoint:next planned`
 
 ## Workflow
 
-### Step 1: Find MASTER_PLAN.md
+### Step 1: Find ROADMAP.md
 
 Search for the plan file in order:
-1. `docs/MASTER_PLAN.md`
-2. `MASTER_PLAN.md`
-3. `master-plan.md`
-4. `docs/master-plan.md`
+1. `docs/ROADMAP.md`
+2. `ROADMAP.md`
+3. `roadmap.md`
+4. `docs/roadmap.md`
 
-If not found, tell the user: "No MASTER_PLAN.md found. Run `/master-plan:task` to create your first task, or create one from the template."
+If not found, tell the user: "No ROADMAP.md found. Run `/waypoint:add` to create your first task, or create one from the template."
 
 ### Step 2: Parse Tasks
 
@@ -67,7 +67,7 @@ Also check git status:
 git status --short
 ```
 
-If uncommitted changes exist, mention: "You have uncommitted changes — consider committing or running `/master-plan:save` first."
+If uncommitted changes exist, mention: "You have uncommitted changes — consider committing or running `/waypoint:save` first."
 
 ### Step 4: Sort and Filter
 
@@ -107,7 +107,7 @@ If there are IN PROGRESS tasks, always show them first with a note: "You have N 
 
 ### Step 6: Show Task Details
 
-When user selects a task, show the full section from MASTER_PLAN.md:
+When user selects a task, show the full section from ROADMAP.md:
 - ID, title, status, priority
 - Description (everything between this `###` header and the next `###` or `##`)
 
@@ -131,14 +131,14 @@ AskUserQuestion({
 ```
 
 If "Start working on this" is selected:
-1. Update the task's status to `IN PROGRESS` in MASTER_PLAN.md (all locations — see update rules below)
+1. Update the task's status to `IN PROGRESS` in ROADMAP.md (all locations — see update rules below)
 2. Update the `**Status**:` line inside the task's `###` section to reflect the current date:
    ```markdown
    **Status**: IN PROGRESS (YYYY-MM-DD)
    ```
 3. Confirm: "Started TASK-XXX. Ready to begin implementation."
 
-## MASTER_PLAN.md Update Rules
+## ROADMAP.md Update Rules
 
 Tasks may appear in multiple locations. When updating status, check ALL of:
 

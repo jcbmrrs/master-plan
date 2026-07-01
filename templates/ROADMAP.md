@@ -1,8 +1,8 @@
-# MASTER PLAN
+# ROADMAP
 
-> AI-native task tracking. Managed by the [master-plan](https://github.com/endlessblink/master-plan) plugin.
+> AI-native task tracking. Managed by the [waypoint](https://github.com/jcbmrrs/waypoint) plugin.
 >
-> **Quick start**: `/master-plan:task` to add a task, `/master-plan:next` to pick one, `/master-plan:done` when finished.
+> **Quick start**: `/waypoint:add` to add a task, `/waypoint:next` to pick one, `/waypoint:done` when finished.
 
 ## Project Overview
 
@@ -16,7 +16,7 @@
 
 | ID | Title | Priority | Status | Dependencies |
 |----|-------|----------|--------|--------------|
-<!-- Tasks are added here automatically by /master-plan:task -->
+<!-- Tasks are added here automatically by /waypoint:add -->
 
 ## Active Work
 
