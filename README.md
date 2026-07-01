@@ -1,5 +1,7 @@
 # waypoint
 
+![waypoint cover](cover.png)
+
 **Capture anything. Choose what's next. Find your flow.**
 
 AI-native task management for [Claude Code](https://claude.com/claude-code). Track tasks in a `ROADMAP.md` file, choose what to work on, save progress, and ship — all through agent skills.
