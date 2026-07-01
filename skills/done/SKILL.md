@@ -232,13 +232,13 @@ git push
 - **Subtasks**: ⚠️ [N] incomplete (see below)
 - **Commit**: [short hash] — wip(TASK-XXX): [message]
 - **Push**: ✅ Pushed to origin
-- **MASTER_PLAN.md**: Remains IN PROGRESS in Active Work
+- **ROADMAP.md**: Remains IN PROGRESS in Active Work
 
 ### Incomplete Subtasks
 - [ ] [subtask text]
 - [ ] [subtask text]
 
-Run `/master-plan:next` to pick this task back up and finish these items.
+Run `/waypoint:next` to pick this task back up and finish these items.
 ```
 
 ## Important Rules
