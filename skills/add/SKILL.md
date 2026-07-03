@@ -99,7 +99,7 @@ Task added to ROADMAP.md:
 - **Priority**: [Priority]
 - **Status**: PLANNED
 
-Use `/waypoint:next` to start working on it, or `/waypoint:done [ID]` when complete.
+Use `/waypoint:next` to start working on it, or `/waypoint:done` when complete.
 ```
 
 ## Initial Setup
