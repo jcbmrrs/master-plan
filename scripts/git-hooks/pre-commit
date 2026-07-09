@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Blocks commits where plugin.json and marketplace.json versions have drifted.
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+PLUGIN_JSON=".claude-plugin/plugin.json"
+MARKETPLACE_JSON=".claude-plugin/marketplace.json"
+
+plugin_version=$(grep -m1 '"version"' "$PLUGIN_JSON" | sed -E 's/.*"version": *"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')
+marketplace_version=$(grep -m1 '"version"' "$MARKETPLACE_JSON" | sed -E 's/.*"version": *"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')
+
+if [[ "$plugin_version" != "$marketplace_version" ]]; then
+  echo "ERROR: version mismatch between $PLUGIN_JSON ($plugin_version) and $MARKETPLACE_JSON ($marketplace_version)." >&2
+  echo "Run scripts/bump-version.sh patch|minor|major to bump both together." >&2
+  exit 1
+fi
+
+if git diff --cached --name-only | grep -qE '^(skills/|templates/)' \
+  && ! git diff --cached --name-only | grep -qE '^\.claude-plugin/(plugin|marketplace)\.json$'; then
+  echo "WARNING: skills/ or templates/ changed but .claude-plugin version files were not bumped in this commit." >&2
+  echo "Run scripts/bump-version.sh patch|minor|major if this change should ship as a new version." >&2
+fi
+
+exit 0
