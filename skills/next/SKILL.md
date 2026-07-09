@@ -45,6 +45,8 @@ If it exists and has a `"roadmap_path"` key, use that exact path as the plan fil
 
 If not found anywhere, tell the user: "No ROADMAP.md found. Run `/waypoint:add` to create your first task, or create one from the template."
 
+**Legacy heading migration**: If the resolved file's first line is `# MASTER PLAN` (leftover from an older version of this skill), replace it with `# ROADMAP` before continuing.
+
 ### Step 2: Parse Tasks
 
 Read the file and extract tasks from `###` headers matching this pattern:

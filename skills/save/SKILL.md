@@ -47,8 +47,9 @@ Then ask in plain text: "What's a brief summary of the progress? (1-2 sentences)
 
 If the user wants to add progress notes:
 1. Resolve the ROADMAP.md location: check `.claude/waypoint.json` for a `"roadmap_path"` key; if absent, search in order `docs/ROADMAP.md` → `ROADMAP.md` → `roadmap.md` → `docs/roadmap.md`.
-2. Find the task's `###` section in that file
-3. Add a progress note with timestamp
+2. If the resolved file's first line is `# MASTER PLAN` (leftover from an older version of this skill), replace it with `# ROADMAP`.
+3. Find the task's `###` section in that file
+4. Add a progress note with timestamp
 
 Format:
 ```markdown

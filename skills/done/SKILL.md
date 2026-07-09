@@ -62,6 +62,8 @@ Detect and run the project's test command. Check in order:
 
 **Resolve the ROADMAP.md location first**: check `.claude/waypoint.json` for a `"roadmap_path"` key; if absent, search in order `docs/ROADMAP.md` → `ROADMAP.md` → `roadmap.md` → `docs/roadmap.md`. Use that resolved path for every step below (referred to as `ROADMAP.md`).
 
+**Legacy heading migration**: If the resolved file's first line is `# MASTER PLAN` (leftover from an older version of this skill), replace it with `# ROADMAP` before continuing.
+
 **CRITICAL**: Tasks may appear in **multiple locations**. Update ALL of them:
 
 #### 4a. Summary/Roadmap Table

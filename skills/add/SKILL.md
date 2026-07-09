@@ -40,6 +40,8 @@ If the user picks a custom path, write it to `.claude/waypoint.json` (creating t
 ```
 Then create the plan file at that path using the template structure (see "Initial Setup" section below), creating parent directories as needed.
 
+**Legacy heading migration**: If the resolved file's first line is `# MASTER PLAN` (leftover from an older version of this skill), replace it with `# ROADMAP` before continuing.
+
 ### Step 2: Generate Next Task ID
 
 Read the ROADMAP.md file and find all existing task IDs:
