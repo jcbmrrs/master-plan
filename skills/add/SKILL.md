@@ -14,15 +14,31 @@ Quickly add new waypoints (tasks) to ROADMAP.md with automatic sequential ID gen
 
 ## Workflow
 
-### Step 1: Find ROADMAP.md
+### Step 1: Resolve ROADMAP.md Location
 
-Search for the plan file in order:
+Check for a waypoint config file at `.claude/waypoint.json`:
+
+```bash
+cat .claude/waypoint.json 2>/dev/null
+```
+
+If it exists and has a `"roadmap_path"` key, use that exact path as the plan file for the rest of this workflow (referred to as `ROADMAP.md` below) — skip the search order.
+
+**If no config file (or no `roadmap_path` key)**, search for the plan file in order:
 1. `docs/ROADMAP.md`
 2. `ROADMAP.md`
 3. `roadmap.md`
 4. `docs/roadmap.md`
 
-**If not found**: Create `docs/ROADMAP.md` using the template structure (see "Initial Setup" section below).
+**If not found anywhere**: Ask the user (via `AskUserQuestion`) where they'd like to keep their plan file:
+- `docs/ROADMAP.md` (Recommended) — default location
+- Custom path — let the user type one, e.g. `.docs/ROADMAP.md` or `notes/PLAN.md`
+
+If the user picks a custom path, write it to `.claude/waypoint.json` (creating the file/directory if needed):
+```json
+{ "roadmap_path": "[chosen path]" }
+```
+Then create the plan file at that path using the template structure (see "Initial Setup" section below), creating parent directories as needed.
 
 ### Step 2: Generate Next Task ID
 
@@ -104,10 +120,10 @@ Use `/waypoint:next` to start working on it, or `/waypoint:done` when complete.
 
 ## Initial Setup
 
-If no ROADMAP.md exists, create `docs/ROADMAP.md` with this structure:
+If no ROADMAP.md exists, create it at the resolved path (`.claude/waypoint.json`'s `roadmap_path` if set, otherwise `docs/ROADMAP.md`) with this structure:
 
 ```markdown
-# MASTER PLAN
+# ROADMAP
 
 > Project task tracking and roadmap.
 
@@ -125,7 +141,17 @@ If no ROADMAP.md exists, create `docs/ROADMAP.md` with this structure:
 <!-- Done tasks are moved here -->
 ```
 
-Also create the `docs/` directory if it doesn't exist.
+Also create any parent directories that don't exist yet.
+
+## Custom Location Config
+
+`.claude/waypoint.json` lets a project pin its plan file to any path, e.g. to keep it out of a synced notes vault:
+
+```json
+{ "roadmap_path": ".docs/ROADMAP.md" }
+```
+
+All four waypoint skills (`add`, `next`, `save`, `done`) check this file first. It's a plain JSON file — safe to commit so the whole team shares the same location.
 
 ## ID Format Reference
 

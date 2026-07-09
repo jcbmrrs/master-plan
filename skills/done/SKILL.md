@@ -60,6 +60,8 @@ Detect and run the project's test command. Check in order:
 
 **Skip this step if user selected "Quick fix (no task ID)".**
 
+**Resolve the ROADMAP.md location first**: check `.claude/waypoint.json` for a `"roadmap_path"` key; if absent, search in order `docs/ROADMAP.md` → `ROADMAP.md` → `roadmap.md` → `docs/roadmap.md`. Use that resolved path for every step below (referred to as `ROADMAP.md`).
+
 **CRITICAL**: Tasks may appear in **multiple locations**. Update ALL of them:
 
 #### 4a. Summary/Roadmap Table
@@ -152,7 +154,7 @@ Cut the entire `###` block (from the `### ~~TASK-XXX~~:` header line down to, bu
 #### 4g. Verify All Updated
 
 ```bash
-grep "TASK-XXX" docs/ROADMAP.md
+grep "TASK-XXX" [resolved ROADMAP.md path]
 ```
 
 Confirm: if fully complete, all occurrences show strikethrough and ✅ DONE. If incomplete, confirm the section remains in Active Work with IN PROGRESS status.
@@ -170,7 +172,7 @@ Prefer staging specific files by name over `git add -A`.
 ```bash
 # Stage code files
 git add <changed-files>
-git add docs/ROADMAP.md  # if tracked task
+git add [resolved ROADMAP.md path]  # if tracked task
 
 # Commit
 git commit -m "$(cat <<'EOF'

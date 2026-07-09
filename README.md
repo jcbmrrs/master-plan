@@ -181,6 +181,18 @@ Tasks can also appear in a roadmap table — the plugin updates both locations a
 
 > **Starting fresh?** Run `/waypoint:add` and the plugin creates the file for you. A starter template is also available at [`templates/ROADMAP.md`](templates/ROADMAP.md).
 
+## Custom Plan File Location
+
+By default, waypoint looks for your plan file in this order: `docs/ROADMAP.md` → `ROADMAP.md` → `roadmap.md` → `docs/roadmap.md`.
+
+Want it somewhere else — e.g. out of a synced notes vault like Obsidian? Add a `.claude/waypoint.json`:
+
+```json
+{ "roadmap_path": ".docs/ROADMAP.md" }
+```
+
+Any path works, and any filename works too, as long as the file uses the standard `### TASK-123: Title (STATUS)` task format. All four skills check this config first, so commit it to share the location with your team. If no config exists and no file is found, `/waypoint:add` will ask where you'd like to keep it and offer to write the config for you.
+
 ## Task ID Format
 
 | Prefix | Usage |

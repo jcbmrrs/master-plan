@@ -27,15 +27,23 @@ Example: `/waypoint:next bugs` or `/waypoint:next planned`
 
 ## Workflow
 
-### Step 1: Find ROADMAP.md
+### Step 1: Resolve ROADMAP.md Location
 
-Search for the plan file in order:
+Check for a waypoint config file at `.claude/waypoint.json`:
+
+```bash
+cat .claude/waypoint.json 2>/dev/null
+```
+
+If it exists and has a `"roadmap_path"` key, use that exact path as the plan file for the rest of this workflow (referred to as `ROADMAP.md` below) — skip the search order.
+
+**If no config file (or no `roadmap_path` key)**, search for the plan file in order:
 1. `docs/ROADMAP.md`
 2. `ROADMAP.md`
 3. `roadmap.md`
 4. `docs/roadmap.md`
 
-If not found, tell the user: "No ROADMAP.md found. Run `/waypoint:add` to create your first task, or create one from the template."
+If not found anywhere, tell the user: "No ROADMAP.md found. Run `/waypoint:add` to create your first task, or create one from the template."
 
 ### Step 2: Parse Tasks
 
